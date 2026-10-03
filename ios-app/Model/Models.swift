@@ -707,3 +707,45 @@ enum PasscodeThemeReader {
         return nil
     }
 }
+
+public struct SavedPasscodeTheme: Codable, Identifiable, Equatable {
+    public let id: UUID
+    public var name: String
+    public var fileName: String
+    public var dateCreated: Date
+    public var language: String
+    public var bold: String
+    public var keyDigits: [String]
+    public var previewPNGBase64: String?
+
+    public static var storageDirectory: URL {
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let dir = docs.appendingPathComponent("PasscodeThemes", isDirectory: true)
+        if !FileManager.default.fileExists(atPath: dir.path) {
+            try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        }
+        return dir
+    }
+
+    public var fileURL: URL {
+        Self.storageDirectory.appendingPathComponent(fileName)
+    }
+
+    public var previewImage: UIImage? {
+        guard let b64 = previewPNGBase64,
+              let data = Data(base64Encoded: b64) else { return nil }
+        return UIImage(data: data)
+    }
+
+    public init(id: UUID = UUID(), name: String, fileName: String, dateCreated: Date = Date(),
+                language: String, bold: String, keyDigits: [String], previewPNGBase64: String? = nil) {
+        self.id = id
+        self.name = name
+        self.fileName = fileName
+        self.dateCreated = dateCreated
+        self.language = language
+        self.bold = bold
+        self.keyDigits = keyDigits
+        self.previewPNGBase64 = previewPNGBase64
+    }
+}

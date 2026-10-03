@@ -35,6 +35,9 @@
     "@gerdaroot" : {
 
     },
+    "#%@" : {
+
+    },
     "%.1f×" : {
 
     },
@@ -57,6 +60,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ item%2$@"
+          }
+        }
+      }
+    },
+    "%@ kf · %@%@%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ kf · %2$@%3$@%4$@"
           }
         }
       }
@@ -101,7 +114,13 @@
         }
       }
     },
+    "Add animation" : {
+
+    },
     "Add Manually" : {
+
+    },
+    "Animation not found" : {
 
     },
     "Apply — обои появятся в галерее PosterBoard на экране блокировки." : {
@@ -119,6 +138,9 @@
 
     },
     "Assign Card Skin" : {
+
+    },
+    "Autoreverse (play back and forth)" : {
 
     },
     "Blend" : {
@@ -167,6 +189,9 @@
 
     },
     "Drag to position. Pinch to zoom." : {
+
+    },
+    "Easing" : {
 
     },
     "Effect" : {
@@ -258,6 +283,9 @@
     "Key %@" : {
 
     },
+    "Keyframes (%@)" : {
+
+    },
     "LAB" : {
 
     },
@@ -298,6 +326,9 @@
 
     },
     "No .tendies wallpapers loaded yet" : {
+
+    },
+    "No animations yet. Add one — any CoreAnimation keyPath with your own keyframes." : {
 
     },
     "No Cards Detected Yet" : {
@@ -355,6 +386,9 @@
 
     },
     "Remove / Unload Theme" : {
+
+    },
+    "Repeat forever" : {
 
     },
     "Resets file protections so iOS re-indexes wallpapers immediately" : {
@@ -445,6 +479,12 @@
 
     },
     "The subject goes in front of the clock (depth effect)" : {
+
+    },
+    "Time: 0 = animation start, 1 = animation end. Value is in CoreAnimation units — same keyPath you'd use in CAPlayground." : {
+
+    },
+    "Timing" : {
 
     },
     "Universal (All)" : {

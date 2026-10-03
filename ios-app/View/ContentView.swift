@@ -1717,6 +1717,21 @@ struct ThemeCreatorSection: View {
 
                 if !vm.effectiveKeys.isEmpty {
                     Button {
+                        showSaveNameDialog = true
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "tray.and.arrow.down.fill")
+                            Text("Save to Library")
+                        }
+                        .font(.system(size: 15, weight: .semibold))
+                        .frame(maxWidth: .infinity, minHeight: 46)
+                        .foregroundStyle(Theme.accent)
+                        .background(Theme.accent.opacity(0.14), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).strokeBorder(Theme.accent.opacity(0.35), lineWidth: 1))
+                    }
+                    .buttonStyle(.plain)
+
+                    Button {
                         _ = vm.exportPassthm()
                     } label: {
                         HStack(spacing: 8) {
@@ -1749,6 +1764,77 @@ struct ThemeCreatorSection: View {
                 }
             }
             .listRowInsets(EdgeInsets(top: 12, leading: 14, bottom: 12, trailing: 14))
+        }
+
+        savedThemesGallery
+            .alert("Save to Library", isPresented: $showSaveNameDialog) {
+                TextField("Theme name", text: $saveThemeName)
+                Button("Save") {
+                    let saved = vm.savePasscodeThemeToLibrary(name: saveThemeName)
+                    if saved != nil {
+                        saveThemeName = ""
+                        showSaveToast = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) { showSaveToast = false }
+                    }
+                }
+                Button("Cancel", role: .cancel) { saveThemeName = "" }
+            } message: {
+                Text("Pick a name for this passcode theme — it'll show up in your library.")
+            }
+            .alert("Rename theme", isPresented: Binding(
+                get: { renamingTheme != nil },
+                set: { if !$0 { renamingTheme = nil } }
+            )) {
+                TextField("New name", text: $renameText)
+                Button("Save") {
+                    if let t = renamingTheme { vm.renameSavedPasscodeTheme(t, to: renameText) }
+                    renamingTheme = nil; renameText = ""
+                }
+                Button("Cancel", role: .cancel) { renamingTheme = nil; renameText = "" }
+            }
+    }
+
+    @State private var showSaveNameDialog = false
+    @State private var saveThemeName = ""
+    @State private var showSaveToast = false
+    @State private var renamingTheme: SavedPasscodeTheme? = nil
+    @State private var renameText = ""
+
+    @ViewBuilder
+    private var savedThemesGallery: some View {
+        if !vm.savedPasscodeThemes.isEmpty {
+            Section(header: Text("Saved Themes · \(vm.savedPasscodeThemes.count)"),
+                    footer: savedThemesFooter) {
+                ForEach(vm.savedPasscodeThemes) { theme in
+                    SavedPasscodeThemeRow(
+                        theme: theme,
+                        onFlash: {
+                            vm.loadPassthm(url: theme.fileURL)
+                            vm.flashPassthm()
+                        },
+                        onEdit: {
+                            vm.loadSavedPasscodeThemeIntoCreator(theme)
+                        },
+                        onExport: { vm.exportSavedPasscodeTheme(theme) },
+                        onRename: {
+                            renameText = theme.name
+                            renamingTheme = theme
+                        },
+                        onDelete: { vm.deleteSavedPasscodeTheme(theme) }
+                    )
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var savedThemesFooter: some View {
+        if showSaveToast {
+            Text("Added to Library ✓")
+                .font(.caption.bold())
+                .foregroundStyle(Theme.accent)
+        } else {
+            EmptyView()
         }
     }
 
@@ -2031,6 +2117,71 @@ struct ThemeCreatorSection: View {
             .buttonStyle(.plain)
             .disabled(!vm.canFlashPassthm)
             .opacity(vm.canFlashPassthm ? 1 : 0.5)
+        }
+    }
+}
+
+struct SavedPasscodeThemeRow: View {
+    let theme: SavedPasscodeTheme
+    let onFlash: () -> Void
+    let onEdit: () -> Void
+    let onExport: () -> Void
+    let onRename: () -> Void
+    let onDelete: () -> Void
+
+    @State private var showDeleteConfirm = false
+
+    private static let dateFmt: DateFormatter = {
+        let f = DateFormatter(); f.dateStyle = .short; f.timeStyle = .short; return f
+    }()
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Group {
+                if let img = theme.previewImage {
+                    Image(uiImage: img)
+                        .resizable().aspectRatio(contentMode: .fit)
+                } else {
+                    Image(systemName: "lock.circle.fill")
+                        .font(.system(size: 36))
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .frame(width: 54, height: 72)
+            .background(Color.black.opacity(0.3), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(theme.name).font(.subheadline.bold())
+                Text("\(theme.keyDigits.count) keys · \(theme.language.uppercased())")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text(Self.dateFmt.string(from: theme.dateCreated))
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
+
+            Spacer()
+
+            Menu {
+                Button { onFlash() } label: { Label("Flash Now", systemImage: "bolt.fill") }
+                Button { onEdit() } label: { Label("Load into Editor", systemImage: "square.and.pencil") }
+                Button { onExport() } label: { Label("Share .passthm", systemImage: "square.and.arrow.up") }
+                Button { onRename() } label: { Label("Rename", systemImage: "pencil") }
+                Divider()
+                Button(role: .destructive) { showDeleteConfirm = true } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            } label: {
+                Image(systemName: "ellipsis.circle")
+                    .font(.title3)
+                    .foregroundStyle(Theme.accent)
+            }
+        }
+        .confirmationDialog("Delete \"\(theme.name)\"?",
+                            isPresented: $showDeleteConfirm,
+                            titleVisibility: .visible) {
+            Button("Delete", role: .destructive) { onDelete() }
+            Button("Cancel", role: .cancel) {}
         }
     }
 }

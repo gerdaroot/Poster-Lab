@@ -57,6 +57,8 @@ final class AppViewModel: ObservableObject {
     @Published var passthmFlashProgress: Double = 0
     @Published var passthmFlashLog: [String] = []
 
+    @Published var savedPasscodeThemes: [SavedPasscodeTheme] = []
+
     @Published var tendieItems: [TendieItem] = []
     @Published var posterBoardContainer: String = ""
     @Published var isDetectingContainer: Bool = false
@@ -105,6 +107,7 @@ final class AppViewModel: ObservableObject {
         scanDocumentsDirectory()
         posterBoardContainer = UserDefaults.standard.string(forKey: "posterlab.posterboard_container") ?? ""
         loadSavedTendies()
+        loadSavedPasscodeThemes()
 
         AppViewModel.sharedLogSink = { [weak self] line in
             self?.log.append(line)
@@ -1085,6 +1088,112 @@ final class AppViewModel: ObservableObject {
     func saveTendieItems() {
         if let data = try? JSONEncoder().encode(tendieItems) {
             UserDefaults.standard.set(data, forKey: "posterlab.saved_tendies")
+        }
+    }
+
+    func loadSavedPasscodeThemes() {
+        if let data = UserDefaults.standard.data(forKey: "posterlab.saved_passcode_themes"),
+           let items = try? JSONDecoder().decode([SavedPasscodeTheme].self, from: data) {
+            self.savedPasscodeThemes = items
+                .filter { FileManager.default.fileExists(atPath: $0.fileURL.path) }
+                .sorted { $0.dateCreated > $1.dateCreated }
+        }
+    }
+
+    func persistSavedPasscodeThemes() {
+        if let data = try? JSONEncoder().encode(savedPasscodeThemes) {
+            UserDefaults.standard.set(data, forKey: "posterlab.saved_passcode_themes")
+        }
+    }
+
+    @discardableResult
+    func savePasscodeThemeToLibrary(name: String) -> SavedPasscodeTheme? {
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalName = trimmed.isEmpty ? "Theme \(savedPasscodeThemes.count + 1)" : trimmed
+        let keys = effectiveKeys
+        guard !keys.isEmpty else {
+            errorMessage = "Add at least one key image before saving to the library."
+            return nil
+        }
+        do {
+            let data = try PasscodeThemePackager.buildPassthm(
+                keys: keys,
+                telephonyVersion: targetTelephonyVersion,
+                language: passcodeLanguageTarget,
+                bold: passcodeBoldTarget
+            )
+            let id = UUID()
+            let fileName = "\(id.uuidString).passthm"
+            let url = SavedPasscodeTheme.storageDirectory.appendingPathComponent(fileName)
+            try data.write(to: url)
+
+            let preview = renderPasscodePreview(keys: keys)
+            let b64 = preview.flatMap { $0.pngData()?.base64EncodedString() }
+
+            let item = SavedPasscodeTheme(
+                id: id,
+                name: finalName,
+                fileName: fileName,
+                dateCreated: Date(),
+                language: passcodeLanguageTarget.code,
+                bold: String(describing: passcodeBoldTarget),
+                keyDigits: Array(keys.keys).sorted(),
+                previewPNGBase64: b64
+            )
+            savedPasscodeThemes.insert(item, at: 0)
+            persistSavedPasscodeThemes()
+            return item
+        } catch {
+            errorMessage = "Failed to save theme: \(error.localizedDescription)"
+            return nil
+        }
+    }
+
+    func deleteSavedPasscodeTheme(_ item: SavedPasscodeTheme) {
+        try? FileManager.default.removeItem(at: item.fileURL)
+        savedPasscodeThemes.removeAll { $0.id == item.id }
+        persistSavedPasscodeThemes()
+    }
+
+    func renameSavedPasscodeTheme(_ item: SavedPasscodeTheme, to newName: String) {
+        guard let idx = savedPasscodeThemes.firstIndex(where: { $0.id == item.id }) else { return }
+        let trimmed = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty { savedPasscodeThemes[idx].name = trimmed }
+        persistSavedPasscodeThemes()
+    }
+
+    func loadSavedPasscodeThemeIntoCreator(_ item: SavedPasscodeTheme) {
+        loadPassthm(url: item.fileURL)
+        adoptThemeIntoCreator()
+    }
+
+    func exportSavedPasscodeTheme(_ item: SavedPasscodeTheme) {
+        self.exportedThemeURL = item.fileURL
+        self.showShareSheet = true
+    }
+
+    private func renderPasscodePreview(keys: [String: UIImage], tile: CGFloat = 56, gap: CGFloat = 4) -> UIImage? {
+        let cols = 3, rows = 4
+        let size = CGSize(width: CGFloat(cols) * tile + CGFloat(cols - 1) * gap,
+                          height: CGFloat(rows) * tile + CGFloat(rows - 1) * gap)
+        let fmt = UIGraphicsImageRendererFormat.default()
+        fmt.scale = 2; fmt.opaque = false
+        return UIGraphicsImageRenderer(size: size, format: fmt).image { _ in
+            let digitOrder = ["1","2","3","4","5","6","7","8","9","","0",""]
+            for (idx, digit) in digitOrder.enumerated() {
+                let col = idx % cols, row = idx / cols
+                let x = CGFloat(col) * (tile + gap)
+                let y = CGFloat(row) * (tile + gap)
+                let rect = CGRect(x: x, y: y, width: tile, height: tile)
+                let path = UIBezierPath(ovalIn: rect)
+                UIColor.white.withAlphaComponent(0.08).setFill()
+                path.fill()
+                if digit.isEmpty { continue }
+                if let img = keys[digit] {
+                    path.addClip()
+                    img.draw(in: rect)
+                }
+            }
         }
     }
 

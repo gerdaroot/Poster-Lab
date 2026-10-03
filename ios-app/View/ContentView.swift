@@ -331,7 +331,7 @@ struct ContentView: View {
         } message: {
             Text(vm.errorMessage ?? "")
         }
-        .alert("Success! 🎉", isPresented: $vm.showSuccessAlert) {
+        .alert("Done", isPresented: $vm.showSuccessAlert) {
             Button("OK") {}
         } message: {
             Text(vm.successAlertMessage)
@@ -350,6 +350,7 @@ struct ContentView: View {
 
 struct PosterTabBar: View {
     @Binding var selected: AppTab
+    @Namespace private var tabNS
 
     private struct Item: Identifiable {
         let id: AppTab
@@ -370,31 +371,50 @@ struct PosterTabBar: View {
         HStack(spacing: 0) {
             ForEach(items) { item in
                 Button {
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    selected = item.id
+                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                        selected = item.id
+                    }
                 } label: {
-                    VStack(spacing: 3) {
+                    VStack(spacing: 2) {
                         Image(systemName: item.icon)
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(.system(size: 17, weight: .medium))
+                            .symbolRenderingMode(.hierarchical)
                         Text(item.title)
-                            .font(.system(size: 10, weight: .semibold))
+                            .font(.system(size: 9, weight: .semibold))
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                     }
-                    .foregroundStyle(selected == item.id ? Theme.accent : Color.secondary)
-                    .frame(maxWidth: .infinity, minHeight: 44)
+                    .foregroundStyle(selected == item.id ? Theme.accent : .white.opacity(0.45))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
                     .contentShape(Rectangle())
+                    .background {
+                        if selected == item.id {
+                            Capsule()
+                                .fill(Theme.accent.opacity(0.12))
+                                .matchedGeometryEffect(id: "tabPill", in: tabNS)
+                                .padding(.horizontal, 4)
+                        }
+                    }
                 }
                 .buttonStyle(.plain)
             }
         }
-        .padding(.horizontal, 4)
-        .padding(.top, 8)
-        .padding(.bottom, 4)
-        .background(.ultraThinMaterial)
-        .overlay(alignment: .top) {
-            Rectangle().fill(Color.primary.opacity(0.08)).frame(height: 0.5)
+        .padding(.horizontal, 6)
+        .padding(.vertical, 6)
+        .background {
+            Capsule()
+                .fill(.ultraThinMaterial)
+                .environment(\.colorScheme, .dark)
+                .overlay {
+                    Capsule()
+                        .strokeBorder(Theme.glassStroke, lineWidth: 0.5)
+                }
+                .shadow(color: .black.opacity(0.25), radius: 16, y: 8)
         }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
     }
 }
 
@@ -413,33 +433,30 @@ struct PairingTab: View {
             Form {
 
                 Section {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(alignment: .firstTextBaseline, spacing: 8) {
-                            VStack(alignment: .leading, spacing: -4) {
-                                Text("POSTER")
-                                    .font(.system(size: 36, weight: .black, design: .rounded))
-                                    .foregroundStyle(.primary)
-                                Text("LAB")
-                                    .font(.system(size: 36, weight: .black, design: .rounded))
-                                    .foregroundStyle(
-                                        LinearGradient(
-                                            colors: [Color(.sRGB, red: 1.0, green: 0.33, blue: 0.22),
-                                                     Color(.sRGB, red: 1.0, green: 0.55, blue: 0.2)],
-                                            startPoint: .topLeading, endPoint: .bottomTrailing))
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack(alignment: .center, spacing: 10) {
+                            if let img = UIImage(named: "AppIcon") {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .frame(width: 48, height: 48)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            }
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("PosterLab")
+                                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                                Text("Wallpapers · Wallet Skins · Passcode Themes")
+                                    .font(.system(size: 11, weight: .medium))
+                                    .foregroundStyle(.secondary)
                             }
                             Spacer()
-                            Text("iOS \(ProcessInfo.processInfo.operatingSystemVersion.majorVersion) · v1.0.0")
-                                .font(.caption.monospaced().bold())
-                                .padding(.horizontal, 8).padding(.vertical, 3)
-                                .background(Color.orange.opacity(0.14))
-                                .foregroundStyle(.orange)
-                                .clipShape(Capsule())
+                            Text("v1.1")
+                                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                                .padding(.horizontal, 8).padding(.vertical, 4)
+                                .background(.ultraThinMaterial, in: Capsule())
+                                .overlay(Capsule().strokeBorder(Color.primary.opacity(0.08), lineWidth: 0.5))
                         }
-                        Text("Create .tendies wallpapers, apply wallet card skins and passcode themes — all on-device via the AirTraffic sandbox escape.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
                     }
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 6)
                 }
                 .listRowBackground(Color.clear)
 
@@ -448,7 +465,7 @@ struct PairingTab: View {
                         if vm.hasPairingFile {
                             Image(systemName: "checkmark.seal.fill").foregroundStyle(.green)
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Paired & Ready ✅")
+                                Text("Paired & Ready")
                                     .font(.subheadline.bold())
                                 Text("\(vm.pairingFileName) (\(vm.pairingFileSizeString))")
                                     .font(.caption.monospaced())
@@ -686,7 +703,7 @@ struct PairingTab: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 60)
+                Color.clear.frame(height: 80)
             }
             .navigationTitle("PosterLab")
             .navigationBarTitleDisplayMode(.inline)
@@ -1012,7 +1029,7 @@ struct WalletCardsTab: View {
             }
             .transaction { $0.animation = nil }
             .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 60)
+                Color.clear.frame(height: 80)
             }
             .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle("Wallet Cards (\(vm.cards.count))")
@@ -1282,40 +1299,19 @@ struct WalletCardsTab: View {
     }
 
     private var walletEmptyState: some View {
-        VStack(spacing: 18) {
+        VStack(spacing: 20) {
             Image(systemName: "creditcard.viewfinder")
-                .font(.system(size: 56))
-                .foregroundStyle(Theme.accent.opacity(0.8))
+                .font(.system(size: 48))
+                .foregroundStyle(Theme.accent.opacity(0.7))
 
-            Text("No Cards Detected Yet")
-                .font(.title3.bold())
-
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(alignment: .top, spacing: 10) {
-                    Text("1.")
-                        .bold()
-                        .foregroundStyle(Theme.accent)
-                    Text("Tap **Scan Cards** in the toolbar above.")
-                }
-                HStack(alignment: .top, spacing: 10) {
-                    Text("2.")
-                        .bold()
-                        .foregroundStyle(Theme.accent)
-                    Text("On this iPhone, **double-click the Side button** (Apple Pay), authenticate with **Face ID**, and **tap your card**.")
-                }
-                HStack(alignment: .top, spacing: 10) {
-                    Text("3.")
-                        .bold()
-                        .foregroundStyle(Theme.accent)
-                    Text("Your card will appear here automatically!")
-                }
+            VStack(spacing: 6) {
+                Text("No Cards Yet")
+                    .font(.headline)
+                Text("Scan your Apple Pay cards or add hashes manually.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
-            .padding(16)
-            .background(Color(uiColor: .secondarySystemGroupedBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 14))
-            .padding(.horizontal, 24)
 
             HStack(spacing: 12) {
                 Button {
@@ -1324,12 +1320,12 @@ struct WalletCardsTab: View {
                     HStack(spacing: 6) {
                         Spacer()
                         Image(systemName: vm.isScanningCards ? "stop.circle.fill" : "wave.3.left.circle")
-                        Text(vm.isScanningCards ? "Stop Scan" : "Scan Cards")
+                        Text(vm.isScanningCards ? "Stop" : "Scan")
                         Spacer()
                     }
-                    .font(.headline)
+                    .font(.subheadline.bold())
                     .frame(maxWidth: .infinity)
-                    .frame(height: 48)
+                    .frame(height: 44)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(vm.isScanningCards ? .red : Theme.accent)
@@ -1341,12 +1337,12 @@ struct WalletCardsTab: View {
                     HStack(spacing: 6) {
                         Spacer()
                         Image(systemName: "plus")
-                        Text("Add Manually")
+                        Text("Add Hash")
                         Spacer()
                     }
-                    .font(.headline)
+                    .font(.subheadline.bold())
                     .frame(maxWidth: .infinity)
-                    .frame(height: 48)
+                    .frame(height: 44)
                 }
                 .buttonStyle(.bordered)
                 .transaction { $0.animation = nil }
@@ -1355,6 +1351,7 @@ struct WalletCardsTab: View {
             .transaction { $0.animation = nil }
         }
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, 16)
         .transaction { $0.animation = nil }
     }
 }
@@ -1428,7 +1425,7 @@ struct PasscodeThemeTab: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 60)
+                Color.clear.frame(height: 80)
             }
             .navigationTitle("Passcode Theme")
             .toolbar {
@@ -1902,12 +1899,29 @@ struct ThemeCreatorSection: View {
                             vm.updatePosterSlicing()
                         }
 
-                        Text(vm.maskToCircles ? "Artwork is clipped into individual circular button icons." : "Seamless artwork spans across dialer keys without circular cuts (Adobe Dog style).")
+                        Text(vm.maskToCircles ? "Artwork is clipped into individual circular button icons." : "Seamless artwork spans across dialer keys without circular cuts.")
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     .padding(.vertical, 2)
+                }
+
+                Section("Image Scaling") {
+                    Picker("", selection: $vm.posterFillMode) {
+                        ForEach(PosterFillMode.allCases) { mode in
+                            Text(mode.rawValue).tag(mode)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .onChange(of: vm.posterFillMode) { _, _ in
+                        vm.updatePosterSlicing()
+                    }
+
+                    Text(vm.posterFillMode == .stretch ? "Image is stretched to fill the keypad grid, ignoring aspect ratio." : "Image covers the grid while keeping its original proportions.")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 Section {
@@ -2198,6 +2212,10 @@ struct KeypadPreviewView: View {
         let imgH = poster.size.height
         guard imgW > 0, imgH > 0 else { return (gridW, gridH) }
 
+        if vm.posterFillMode == .stretch {
+            return (width: gridW * vm.posterZoom, height: gridH * vm.posterZoom)
+        }
+
         let imgAspect = imgW / imgH
         let gridAspect = gridW / gridH
 
@@ -2394,65 +2412,67 @@ struct CreditsTab: View {
     }
 
     private var header: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 14) {
             if let img = UIImage(named: "AppIcon") {
                 Image(uiImage: img)
                     .resizable()
-                    .frame(width: 72, height: 72)
-                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                    .shadow(color: .black.opacity(0.25), radius: 8, y: 4)
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .strokeBorder(.white.opacity(0.15), lineWidth: 0.5)
+                    )
+                    .shadow(color: .black.opacity(0.3), radius: 12, y: 6)
             } else {
                 Image(systemName: "wand.and.stars")
-                    .font(.system(size: 60))
+                    .font(.system(size: 56))
                     .foregroundStyle(Theme.accentGradient)
             }
 
-            VStack(spacing: 2) {
+            VStack(spacing: 4) {
                 Text("PosterLab")
-                    .font(.title2.bold())
-                Text(".tendies wallpaper studio, wallet skins & passcode themes for iOS")
-                    .font(.caption)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                Text("Wallpaper studio, wallet skins & passcode themes")
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 24)
             }
         }
-        .padding(.top, 10)
+        .padding(.top, 16)
     }
 
     private var developerCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Label("Developer", systemImage: "crown.fill")
-                    .font(.caption.bold().uppercaseSmallCaps())
-                    .foregroundStyle(Theme.accent)
-                Spacer()
-                Text("Lead")
-                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 2)
-                    .background(Theme.accent.opacity(0.15))
-                    .foregroundStyle(Theme.accent)
-                    .clipShape(Capsule())
-            }
-
-            HStack(spacing: 8) {
-                Text("@gerdaroot")
-                    .font(.headline.bold())
-
-                Spacer()
-
-                Link(destination: URL(string: "https://github.com/gerdaroot")!) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "link")
-                        Text("GitHub")
-                    }
-                    .font(.caption.bold())
+        HStack(spacing: 12) {
+            Circle()
+                .fill(Theme.accent.opacity(0.12))
+                .frame(width: 44, height: 44)
+                .overlay {
+                    Text("G")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .foregroundStyle(Theme.accent)
                 }
-                .buttonStyle(.bordered)
-                .controlSize(.small)
-                .tint(Theme.accent)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("@gerdaroot")
+                    .font(.subheadline.bold())
+                Text("Developer")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+
+            Spacer()
+
+            Link(destination: URL(string: "https://github.com/gerdaroot")!) {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.up.right")
+                    Text("GitHub")
+                }
+                .font(.caption.bold())
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.small)
+            .tint(Theme.accent)
         }
         .padding(14)
         .background(Color(uiColor: .secondarySystemGroupedBackground))

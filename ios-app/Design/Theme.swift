@@ -18,6 +18,10 @@ enum Theme {
                  Color(.sRGB, red: 1.0, green: 0.55, blue: 0.2)],
         startPoint: .topLeading, endPoint: .bottomTrailing)
 
+    static let glassStroke = LinearGradient(
+        colors: [Color.white.opacity(0.2), Color.white.opacity(0.05)],
+        startPoint: .top, endPoint: .bottom)
+
     static let corner: CGFloat = 24
     static let cornerSmall: CGFloat = 15
 

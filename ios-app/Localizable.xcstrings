@@ -15,9 +15,6 @@
     ".passthm format" : {
 
     },
-    ".tendies wallpaper studio, wallet skins & passcode themes for iOS" : {
-
-    },
     "“Exits…” flies the object off-screen on the Home Screen. “Flies in…” means the object rests on the Home Screen and isn’t on the Lock Screen — it appears from off-screen during the transition." : {
 
     },
@@ -64,6 +61,16 @@
         }
       }
     },
+    "%@ keys · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ keys · %2$@"
+          }
+        }
+      }
+    },
     "%@ kf · %@%@%@" : {
       "localizations" : {
         "en" : {
@@ -94,15 +101,6 @@
         }
       }
     },
-    "1." : {
-
-    },
-    "2." : {
-
-    },
-    "3." : {
-
-    },
     "6 вращающихся дублей по кругу" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -117,7 +115,10 @@
     "Add animation" : {
 
     },
-    "Add Manually" : {
+    "Add Hash" : {
+
+    },
+    "Added to Library ✓" : {
 
     },
     "Animation not found" : {
@@ -167,13 +168,13 @@
     "Clockwise" : {
 
     },
-    "Create .tendies wallpapers, apply wallet card skins and passcode themes — all on-device via the AirTraffic sandbox escape." : {
-
-    },
     "Cut out subject" : {
 
     },
     "Delete Pairing File" : {
+
+    },
+    "Developer" : {
 
     },
     "Device IP:" : {
@@ -253,6 +254,9 @@
     "Force PosterBoard Cache Refresh" : {
 
     },
+    "G" : {
+
+    },
     "GitHub" : {
 
     },
@@ -274,9 +278,6 @@
     "Import Pairing File…" : {
 
     },
-    "iOS %@ · v1.0.0" : {
-
-    },
     "It will immediately appear under 'Discovered in Documents' in PosterLab." : {
 
     },
@@ -286,13 +287,7 @@
     "Keyframes (%@)" : {
 
     },
-    "LAB" : {
-
-    },
     "Layer" : {
-
-    },
-    "Lead" : {
 
     },
     "Live Scanner Active" : {
@@ -331,7 +326,7 @@
     "No animations yet. Add one — any CoreAnimation keyPath with your own keyframes." : {
 
     },
-    "No Cards Detected Yet" : {
+    "No Cards Yet" : {
 
     },
     "No layers yet. Tap “Add”." : {
@@ -349,10 +344,7 @@
     "On My iPhone › SideStore › ALTPairingFile.mobiledevicepairing" : {
 
     },
-    "On this iPhone, **double-click the Side button** (Apple Pay), authenticate with **Face ID**, and **tap your card**." : {
-
-    },
-    "Paired & Ready ✅" : {
+    "Paired & Ready" : {
 
     },
     "Passcode-theme standard from the Cowabunga / Nugget ecosystem" : {
@@ -364,10 +356,10 @@
     "PHOTO" : {
 
     },
-    "Plays when the Lock Screen wakes and when revealing the Home Screen." : {
+    "Pick a name for this passcode theme — it'll show up in your library." : {
 
     },
-    "POSTER" : {
+    "Plays when the Lock Screen wakes and when revealing the Home Screen." : {
 
     },
     "PosterBoard container will be auto-detected automatically on flash." : {
@@ -401,6 +393,15 @@
 
     },
     "Retry Flash Theme" : {
+
+    },
+    "Save to Library" : {
+
+    },
+    "Saved Themes · %@" : {
+
+    },
+    "Scan your Apple Pay cards or add hashes manually." : {
 
     },
     "Scanner Status" : {
@@ -443,9 +444,6 @@
 
     },
     "Tap 'Choose .tendies from Files' or copy wallpapers into On My iPhone › PosterLab." : {
-
-    },
-    "Tap **Scan Cards** in the toolbar above." : {
 
     },
     "Tap + and build your first wallpaper\nfrom backgrounds, text and your photos." : {
@@ -493,10 +491,19 @@
     "Universal mode flashes ~600 files for all languages & Bold text. Selecting a specific language (e.g. Ukrainian) speeds up flashing dramatically." : {
 
     },
+    "v1.0" : {
+
+    },
     "Visible on Home Screen" : {
 
     },
     "Visible on Lock Screen" : {
+
+    },
+    "Wallpaper studio, wallet skins & passcode themes" : {
+
+    },
+    "Wallpapers · Wallet Skins · Passcode Themes" : {
 
     },
     "Wallpapers Gallery" : {
@@ -512,9 +519,6 @@
 
     },
     "You can also copy any .mobiledevicepairing or .plist file directly into:" : {
-
-    },
-    "Your card will appear here automatically!" : {
 
     },
     "Zoom" : {

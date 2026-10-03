@@ -68,6 +68,12 @@ enum CreatorMode: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+enum PosterFillMode: String, CaseIterable, Identifiable {
+    case fill = "Fill"
+    case stretch = "Stretch"
+    var id: String { rawValue }
+}
+
 enum SliceMode: String, CaseIterable, Identifiable {
     case posterSlice = "Poster Slice"
     case individualKeys = "Individual Keys"
@@ -293,7 +299,8 @@ enum ImageEngine {
         image: UIImage,
         zoom: CGFloat = 1.0,
         offset: CGPoint = .zero,
-        maskToCircles: Bool = false
+        maskToCircles: Bool = false,
+        fillMode: PosterFillMode = .fill
     ) -> [String: UIImage] {
         let normalized = normalizeAndDownsample(image, maxDimension: 2048)
         let imgW = normalized.size.width
@@ -305,18 +312,24 @@ enum ImageEngine {
         let colW: CGFloat  = 305.0
         let rowH: CGFloat  = 287.0
 
-        let imgAspect  = imgW / imgH
-        let gridAspect = gridW / gridH
-
         let safeZoom = max(0.2, min(5.0, zoom))
         let scaledW: CGFloat
         let scaledH: CGFloat
-        if imgAspect > gridAspect {
-            scaledH = gridH * safeZoom
-            scaledW = scaledH * imgAspect
-        } else {
+
+        switch fillMode {
+        case .stretch:
             scaledW = gridW * safeZoom
-            scaledH = scaledW / imgAspect
+            scaledH = gridH * safeZoom
+        case .fill:
+            let imgAspect  = imgW / imgH
+            let gridAspect = gridW / gridH
+            if imgAspect > gridAspect {
+                scaledH = gridH * safeZoom
+                scaledW = scaledH * imgAspect
+            } else {
+                scaledW = gridW * safeZoom
+                scaledH = scaledW / imgAspect
+            }
         }
 
         let imageX = (gridW - scaledW) / 2.0 + offset.x * 3.0

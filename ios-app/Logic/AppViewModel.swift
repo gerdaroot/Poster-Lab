@@ -45,6 +45,7 @@ final class AppViewModel: ObservableObject {
     @Published var posterZoom: CGFloat = 1.0
     @Published var posterOffset: CGPoint = .zero
     @Published var maskToCircles: Bool = false
+    @Published var posterFillMode: PosterFillMode = .fill
     @Published var slicedKeys: [String: UIImage] = [:]
 
     @Published var customKeys: [String: UIImage] = [:]
@@ -738,6 +739,7 @@ final class AppViewModel: ObservableObject {
         posterImage = img
         posterZoom = 1.0
         posterOffset = .zero
+        posterFillMode = .fill
         updatePosterSlicing()
     }
 
@@ -747,7 +749,8 @@ final class AppViewModel: ObservableObject {
             image: img,
             zoom: posterZoom,
             offset: posterOffset,
-            maskToCircles: maskToCircles
+            maskToCircles: maskToCircles,
+            fillMode: posterFillMode
         )
     }
 
@@ -1058,6 +1061,7 @@ final class AppViewModel: ObservableObject {
     func resetPosterPosition() {
         posterZoom = 1.0
         posterOffset = .zero
+        posterFillMode = .fill
         updatePosterSlicing()
     }
 

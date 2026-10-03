@@ -185,7 +185,7 @@ struct TendiesView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 60)
+                Color.clear.frame(height: 80)
             }
             .navigationTitle("Wallpapers")
             .navigationBarTitleDisplayMode(.inline)

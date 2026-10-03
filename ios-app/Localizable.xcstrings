@@ -1,0 +1,2384 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " копия" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " copy"
+          }
+        }
+      }
+    },
+    ".passthm standard (Cowabunga / Nugget)" : {
+
+    },
+    ".tendies wallpaper studio, wallet skins & passcode themes for iOS" : {
+
+    },
+    "“Exits…” flies the object off-screen on the Home Screen. “Flies in…” means the object rests on the Home Screen and isn’t on the Lock Screen — it appears from off-screen during the transition." : {
+
+    },
+    "«Уходит…» — объект улетает за экран на рабочем столе. «Влетает…» — объект лежит на рабочем столе, а на блокировке его нет: он появляется из-за экрана при переходе." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Exits…” flies the object off-screen on the Home Screen. “Flies in…” means the object rests on the Home Screen and isn’t on the Lock Screen — it appears from off-screen during the transition."
+          }
+        }
+      }
+    },
+    "@gerdaroot" : {
+
+    },
+    "%.1f×" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ (%@)" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$@)"
+          }
+        }
+      }
+    },
+    "%@ item%@" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ item%2$@"
+          }
+        }
+      }
+    },
+    "%@ Wallpapers Imported" : {
+
+    },
+    "•" : {
+
+    },
+    "• In iLoader: Settings › Export Pairing File › save to Files.\n• In Jitterbug: Export your <UDID>.mobiledevicepairing.\n• On PC/Mac: Run jitterbugpair or export from SideServer / AltServer, then AirDrop to your iPhone." : {
+
+    },
+    "1 оборот за 30 c" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 turn per 30s"
+          }
+        }
+      }
+    },
+    "1." : {
+
+    },
+    "2." : {
+
+    },
+    "3." : {
+
+    },
+    "6 вращающихся дублей по кругу" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6 spinning copies in a ring"
+          }
+        }
+      }
+    },
+    "Add Manually" : {
+
+    },
+    "airlift — AirTraffic sync sandbox escape" : {
+
+    },
+    "Apply — обои появятся в галерее PosterBoard на экране блокировки." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply — the wallpaper appears in the PosterBoard gallery on the Lock Screen."
+          }
+        }
+      }
+    },
+    "Apply to" : {
+
+    },
+    "Assign Card Skin" : {
+
+    },
+    "Blend" : {
+
+    },
+    "Cancel Pairing" : {
+
+    },
+    "Card #%@" : {
+
+    },
+    "Choose another image or try downloading the photo to your iPhone first." : {
+
+    },
+    "Circle Buttons" : {
+
+    },
+    "Clear" : {
+
+    },
+    "Clear All" : {
+
+    },
+    "Clockwise" : {
+
+    },
+    "Core Exploit" : {
+
+    },
+    "Create .tendies wallpapers, apply wallet card skins and passcode themes — all on-device via the AirTraffic sandbox escape." : {
+
+    },
+    "Cut out subject" : {
+
+    },
+    "Delete Pairing File" : {
+
+    },
+    "Device IP:" : {
+
+    },
+    "Discovered in Documents:" : {
+
+    },
+    "Drag anywhere on the dialer preview to reposition" : {
+
+    },
+    "Drag preview to reposition" : {
+
+    },
+    "Drag to position. Pinch to zoom." : {
+
+    },
+    "Effect" : {
+
+    },
+    "ENTER THIS PIN ON THIS IPHONE:" : {
+
+    },
+    "Export .passthm..." : {
+
+    },
+    "Fast mode selected: only targets %@ with %@." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fast mode selected: only targets %1$@ with %2$@."
+          }
+        }
+      }
+    },
+    "Files app › On My iPhone › PosterLab" : {
+
+    },
+    "Flash" : {
+
+    },
+    "Flash & Language Target" : {
+
+    },
+    "Flash %@ Wallpaper%@" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Flash %1$@ Wallpaper%2$@"
+          }
+        }
+      }
+    },
+    "Flash Theme to iPhone" : {
+
+    },
+    "Flashing Theme…" : {
+
+    },
+    "Flashing Wallpapers…" : {
+
+    },
+    "Flashing will automatically trigger NeoSpring to respring the device and apply your new wallpapers." : {
+
+    },
+    "Flashing…" : {
+
+    },
+    "Font Weight / Style" : {
+
+    },
+    "Force PosterBoard Cache Refresh" : {
+
+    },
+    "GitHub" : {
+
+    },
+    "github.com/0xjohnnydev/airlift" : {
+
+    },
+    "Home Screen" : {
+
+    },
+    "id: %@" : {
+
+    },
+    "If you run SideStore inside LiveContainer, the pairing file is stored inside LiveContainer's app storage:" : {
+
+    },
+    "iLoader / Jitterbug / AltStore" : {
+
+    },
+    "Import Pairing File Now" : {
+
+    },
+    "Import Pairing File…" : {
+
+    },
+    "iOS %@ · v1.3.1" : {
+
+    },
+    "It will immediately appear under 'Discovered in Documents' in PosterLab." : {
+
+    },
+    "Key %@" : {
+
+    },
+    "LAB" : {
+
+    },
+    "Layer" : {
+
+    },
+    "Lead" : {
+
+    },
+    "Live Scanner Active" : {
+
+    },
+    "LiveContainer (SideStore inside)" : {
+
+    },
+    "Lock Screen" : {
+
+    },
+    "Manual Drop in Files App" : {
+
+    },
+    "Move photo down" : {
+
+    },
+    "Move photo left" : {
+
+    },
+    "Move photo right" : {
+
+    },
+    "Move photo up" : {
+
+    },
+    "Movement" : {
+
+    },
+    "Name for the .tendies file" : {
+
+    },
+    "NeoSpring & PosterBoard" : {
+
+    },
+    "No .tendies wallpapers loaded yet" : {
+
+    },
+    "No Cards Detected Yet" : {
+
+    },
+    "No layers yet. Tap “Add”." : {
+
+    },
+    "No wallpapers yet" : {
+
+    },
+    "Not Paired" : {
+
+    },
+    "On My iPhone › LiveContainer › SideStore › Documents › ALTPairingFile.mobiledevicepairing" : {
+
+    },
+    "On My iPhone › SideStore › ALTPairingFile.mobiledevicepairing" : {
+
+    },
+    "On this iPhone, **double-click the Side button** (Apple Pay), authenticate with **Face ID**, and **tap your card**." : {
+
+    },
+    "Paired & Ready ✅" : {
+
+    },
+    "Passcode Themes" : {
+
+    },
+    "Path in Files app:" : {
+
+    },
+    "PHOTO" : {
+
+    },
+    "Plays when the Lock Screen wakes and when revealing the Home Screen." : {
+
+    },
+    "POSTER" : {
+
+    },
+    "PosterBoard container will be auto-detected automatically on flash." : {
+
+    },
+    "PosterLab" : {
+
+    },
+    "PosterLab can import pairing files exported by SideStore, LiveContainer, iLoader, or your computer." : {
+
+    },
+    "Preview the transition in the emulator (▶︎ at the top, swipe up)." : {
+
+    },
+    "Recommended" : {
+
+    },
+    "Remove / Unload Theme" : {
+
+    },
+    "Resets file protections so iOS re-indexes wallpapers immediately" : {
+
+    },
+    "Respring (NeoSpring)" : {
+
+    },
+    "Retry" : {
+
+    },
+    "Retry Flash Theme" : {
+
+    },
+    "Scanner Status" : {
+
+    },
+    "Seamless Poster" : {
+
+    },
+    "Select a layer on the canvas." : {
+
+    },
+    "Settings › Privacy & Security › Developer Mode › Pair with PosterLab" : {
+
+    },
+    "Setup LocalDevVPN:" : {
+
+    },
+    "SideStore" : {
+
+    },
+    "SideStore automatically creates a pairing file during setup. You can pick it directly in the Files app:" : {
+
+    },
+    "Spin forever" : {
+
+    },
+    "SpringBoard reload & .tendies wallpapers" : {
+
+    },
+    "STICKERS" : {
+
+    },
+    "Supports .mobiledevicepairing, .plist, or .mobilepair exported from SideStore, iLoader, AltStore, Jitterbug, or Mac/PC." : {
+
+    },
+    "swipe up" : {
+
+    },
+    "System Caches" : {
+
+    },
+    "System Language" : {
+
+    },
+    "Tap 'Choose .tendies from Files' or copy wallpapers into On My iPhone › PosterLab." : {
+
+    },
+    "Tap **Scan Cards** in the toolbar above." : {
+
+    },
+    "Tap + and build your first wallpaper\nfrom backgrounds, text and your photos." : {
+
+    },
+    "Tap a button row to assign a custom image." : {
+
+    },
+    "Tap to choose photo" : {
+
+    },
+    "Target: PosterBoard container detected ✅" : {
+
+    },
+    "TelephonyUI-8 (iOS 14–15)" : {
+
+    },
+    "TelephonyUI-9 (iOS 16–17)" : {
+
+    },
+    "TelephonyUI-10 (iOS 18+)" : {
+
+    },
+    "TEXT" : {
+
+    },
+    "The active pairing credentials will be removed so you can re-pair or import another file." : {
+
+    },
+    "The file is a standard PosterBoard poster (Core Animation layers). It works through customization tools; no jailbreak required." : {
+
+    },
+    "The subject goes in front of the clock (depth effect)" : {
+
+    },
+    "Universal (All)" : {
+
+    },
+    "Universal mode flashes ~600 files for all languages & Bold text. Selecting a specific language (e.g. Ukrainian) speeds up flashing dramatically." : {
+
+    },
+    "Visible on Home Screen" : {
+
+    },
+    "Visible on Lock Screen" : {
+
+    },
+    "Wallpapers Gallery" : {
+
+    },
+    "Where to find SideStore / LiveContainer pairing file?" : {
+
+    },
+    "Where to find your pairing file" : {
+
+    },
+    "You can add multiple hashes at once — separate them with spaces, commas, or newlines." : {
+
+    },
+    "You can also copy any .mobiledevicepairing or .plist file directly into:" : {
+
+    },
+    "Your card will appear here automatically!" : {
+
+    },
+    "Zoom" : {
+
+    },
+    "Zoom & Framing" : {
+
+    },
+    "Анимация вращения" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin animation"
+          }
+        }
+      }
+    },
+    "Анимация появления" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal animation"
+          }
+        }
+      }
+    },
+    "Арабо-индийские" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabic-Indic"
+          }
+        }
+      }
+    },
+    "Без названия" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untitled"
+          }
+        }
+      }
+    },
+    "Блокировка" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock Screen"
+          }
+        }
+      }
+    },
+    "Большой сдвиг уводит объект за экран на рабочем столе. Снимите «Видно на блокировке» у другого слоя, чтобы он появлялся только на рабочем столе." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A large offset moves the object off-screen on the Home Screen. Turn off “Visible on Lock Screen” for another layer so it appears only on the Home Screen."
+          }
+        }
+      }
+    },
+    "Видно на блокировке" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visible on Lock Screen"
+          }
+        }
+      }
+    },
+    "Видно на рабочем столе" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visible on Home Screen"
+          }
+        }
+      }
+    },
+    "Влетает сверху" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flies in from top"
+          }
+        }
+      }
+    },
+    "Влетает слева" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flies in from left"
+          }
+        }
+      }
+    },
+    "Влетает снизу" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flies in from bottom"
+          }
+        }
+      }
+    },
+    "Влетает справа" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flies in from right"
+          }
+        }
+      }
+    },
+    "Все слои" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All layers"
+          }
+        }
+      }
+    },
+    "Выберите Wallpaper → Import и укажите ваш .tendies." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose Wallpaper → Import and select your .tendies."
+          }
+        }
+      }
+    },
+    "Выберите слой на холсте." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select a layer on the canvas."
+          }
+        }
+      }
+    },
+    "Выбрать фото" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose photo"
+          }
+        }
+      }
+    },
+    "Выбрать фото фоном" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose background photo"
+          }
+        }
+      }
+    },
+    "Вырезать фон с персонажа" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cut out subject"
+          }
+        }
+      }
+    },
+    "Вырезаю объект…" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cutting out subject…"
+          }
+        }
+      }
+    },
+    "Выше" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Up"
+          }
+        }
+      }
+    },
+    "Глубина и наложение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depth & blending"
+          }
+        }
+      }
+    },
+    "Готово" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "Готово к экспорту" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ready to export"
+          }
+        }
+      }
+    },
+    "Дата" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date"
+          }
+        }
+      }
+    },
+    "Движение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Movement"
+          }
+        }
+      }
+    },
+    "Деванагари" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devanagari"
+          }
+        }
+      }
+    },
+    "Длительность, c" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duration, s"
+          }
+        }
+      }
+    },
+    "Добавить" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "Добавить слой" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add layer"
+          }
+        }
+      }
+    },
+    "Добавить текст" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add text"
+          }
+        }
+      }
+    },
+    "Дождь" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rain"
+          }
+        }
+      }
+    },
+    "Домашний экран" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home Screen"
+          }
+        }
+      }
+    },
+    "Дублировать" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duplicate"
+          }
+        }
+      }
+    },
+    "Жирный" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bold"
+          }
+        }
+      }
+    },
+    "Заголовок" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "Закат" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunset"
+          }
+        }
+      }
+    },
+    "Закрыть" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "Замена светлым" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lighten"
+          }
+        }
+      }
+    },
+    "Замена тёмным" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Darken"
+          }
+        }
+      }
+    },
+    "Звёзды" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stars"
+          }
+        }
+      }
+    },
+    "Имя" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "ИМЯ ВЛАДЕЛЬЦА" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CARDHOLDER NAME"
+          }
+        }
+      }
+    },
+    "Исключение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exclusion"
+          }
+        }
+      }
+    },
+    "Искры" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Embers"
+          }
+        }
+      }
+    },
+    "Карта" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Card"
+          }
+        }
+      }
+    },
+    "Кегль" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Font size"
+          }
+        }
+      }
+    },
+    "Конфетти" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confetti"
+          }
+        }
+      }
+    },
+    "Крутить бесконечно" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin forever"
+          }
+        }
+      }
+    },
+    "Лепестки" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Petals"
+          }
+        }
+      }
+    },
+    "Линейный осветлитель" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linear Dodge"
+          }
+        }
+      }
+    },
+    "Масштаб" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scale"
+          }
+        }
+      }
+    },
+    "Масштаб (рабочий стол)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scale (Home Screen)"
+          }
+        }
+      }
+    },
+    "Моноширинный" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monospaced"
+          }
+        }
+      }
+    },
+    "Моя карта" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My card"
+          }
+        }
+      }
+    },
+    "Мягкий" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soft"
+          }
+        }
+      }
+    },
+    "Мягкое наложение Screen" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soft Screen blend"
+          }
+        }
+      }
+    },
+    "Надписи" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text"
+          }
+        }
+      }
+    },
+    "Нажми + и собери первые обои\nиз фонов, текста и своих фото." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap + and build your first wallpaper\nfrom backgrounds, text and your photos."
+          }
+        }
+      }
+    },
+    "Название" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "Начать с шаблона" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start from a template"
+          }
+        }
+      }
+    },
+    "Не удалось вырезать фон — добавил фото целиком." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't cut out the subject — added the full photo."
+          }
+        }
+      }
+    },
+    "Не удалось загрузить фото." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load the photo."
+          }
+        }
+      }
+    },
+    "Не удалось найти объект — добавил фото целиком." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't find a subject — added the full photo."
+          }
+        }
+      }
+    },
+    "Не удалось отрисовать изображение." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't render the image."
+          }
+        }
+      }
+    },
+    "Не удалось отрисовать слой." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't render the layer."
+          }
+        }
+      }
+    },
+    "Не удалось упаковать .tendies." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't package the .tendies."
+          }
+        }
+      }
+    },
+    "Нет" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "None"
+          }
+        }
+      }
+    },
+    "Нет доступа к фотоплёнке. Разрешите его в Настройках → PosterLab." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No access to your photo library. Allow it in Settings → PosterLab."
+          }
+        }
+      }
+    },
+    "Ниже" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Down"
+          }
+        }
+      }
+    },
+    "Новые обои" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New wallpaper"
+          }
+        }
+      }
+    },
+    "Обновить PNG" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update PNG"
+          }
+        }
+      }
+    },
+    "Обороты" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turns"
+          }
+        }
+      }
+    },
+    "обрезка фона с персонажа" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "subject cutout"
+          }
+        }
+      }
+    },
+    "Объект встанет поверх часов (эффект глубины)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The subject goes in front of the clock (depth effect)"
+          }
+        }
+      }
+    },
+    "Обычные (1234)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular (1234)"
+          }
+        }
+      }
+    },
+    "Обычный" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal"
+          }
+        }
+      }
+    },
+    "Обычный вид, без анимации" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal look, no animation"
+          }
+        }
+      }
+    },
+    "Округлый" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rounded"
+          }
+        }
+      }
+    },
+    "Осветление (Screen)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen"
+          }
+        }
+      }
+    },
+    "Осветление основы" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Color Dodge"
+          }
+        }
+      }
+    },
+    "Остаётся на месте" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stays in place"
+          }
+        }
+      }
+    },
+    "Откройте Nugget" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Nugget"
+          }
+        }
+      }
+    },
+    "Отмена" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "Отправьте .tendies в «Файлы» или сразу в приложение Nugget." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send the .tendies to Files or straight to the Nugget app."
+          }
+        }
+      }
+    },
+    "Оформление" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Style"
+          }
+        }
+      }
+    },
+    "Перекрытие" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overlay"
+          }
+        }
+      }
+    },
+    "Переход блокировка → рабочий стол" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock → Home transition"
+          }
+        }
+      }
+    },
+    "Персонаж" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subject"
+          }
+        }
+      }
+    },
+    "Персонаж (перед часами)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subject (in front of clock)"
+          }
+        }
+      }
+    },
+    "Плавное вращение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smooth spin"
+          }
+        }
+      }
+    },
+    "Плотность" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Density"
+          }
+        }
+      }
+    },
+    "По часовой" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clockwise"
+          }
+        }
+      }
+    },
+    "Поведение на экранах" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen behavior"
+          }
+        }
+      }
+    },
+    "Поверх часов" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In front of clock"
+          }
+        }
+      }
+    },
+    "Поворот" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rotation"
+          }
+        }
+      }
+    },
+    "Поделиться .tendies" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share .tendies"
+          }
+        }
+      }
+    },
+    "Поделиться PNG" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share PNG"
+          }
+        }
+      }
+    },
+    "Подпись" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "Пока нет обоев" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No wallpapers yet"
+          }
+        }
+      }
+    },
+    "Полночь" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Midnight"
+          }
+        }
+      }
+    },
+    "Понедельник\n29 сентября" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monday\nSeptember 29"
+          }
+        }
+      }
+    },
+    "Появление" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal"
+          }
+        }
+      }
+    },
+    "Приближение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom in"
+          }
+        }
+      }
+    },
+    "Примените" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply"
+          }
+        }
+      }
+    },
+    "Применить к" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply to"
+          }
+        }
+      }
+    },
+    "Проверить переход — в эмуляторе (кнопка ▶︎ сверху, свайп вверх)." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview the transition in the emulator (▶︎ at the top, swipe up)."
+          }
+        }
+      }
+    },
+    "Проверить переход можно в эмуляторе (кнопка ▶︎ сверху)." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test the transition in the emulator (▶︎ button at the top)."
+          }
+        }
+      }
+    },
+    "Прозрачность" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opacity"
+          }
+        }
+      }
+    },
+    "Проигрывается при пробуждении экрана блокировки и при переходе на домашний экран." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plays when the Lock Screen wakes and when revealing the Home Screen."
+          }
+        }
+      }
+    },
+    "Проявление" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fade in"
+          }
+        }
+      }
+    },
+    "Пузырьки" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bubbles"
+          }
+        }
+      }
+    },
+    "Пусто" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blank"
+          }
+        }
+      }
+    },
+    "Рабочий стол" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home Screen"
+          }
+        }
+      }
+    },
+    "Раскладка рабочего стола — «влетающие» слои на местах" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home Screen layout — flying-in layers are in place"
+          }
+        }
+      }
+    },
+    "Раскладка экрана блокировки" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock Screen layout"
+          }
+        }
+      }
+    },
+    "Римские" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roman"
+          }
+        }
+      }
+    },
+    "С вращением" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With spin"
+          }
+        }
+      }
+    },
+    "С засечками" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serif"
+          }
+        }
+      }
+    },
+    "Сбросить" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        }
+      }
+    },
+    "Сверху вниз" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top to bottom"
+          }
+        }
+      }
+    },
+    "Свечение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glow"
+          }
+        }
+      }
+    },
+    "Своё фото фоном" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your photo as background"
+          }
+        }
+      }
+    },
+    "Сдвиг по X (рабочий стол)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "X offset (Home Screen)"
+          }
+        }
+      }
+    },
+    "Сдвиг по Y (рабочий стол)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Y offset (Home Screen)"
+          }
+        }
+      }
+    },
+    "Системный" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        }
+      }
+    },
+    "Скорость" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speed"
+          }
+        }
+      }
+    },
+    "Скругление" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corner radius"
+          }
+        }
+      }
+    },
+    "Слоёв пока нет. Нажмите «Добавить»." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No layers yet. Tap “Add”."
+          }
+        }
+      }
+    },
+    "Слои" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layers"
+          }
+        }
+      }
+    },
+    "Слой" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layer"
+          }
+        }
+      }
+    },
+    "Слой плывёт над временем (глубина)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layer floats above the time (depth)"
+          }
+        }
+      }
+    },
+    "Слой уходит за часы" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layer goes behind the clock"
+          }
+        }
+      }
+    },
+    "смахните вверх" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "swipe up"
+          }
+        }
+      }
+    },
+    "Снег" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snow"
+          }
+        }
+      }
+    },
+    "Снизу вверх" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bottom to top"
+          }
+        }
+      }
+    },
+    "Создать обои" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create wallpaper"
+          }
+        }
+      }
+    },
+    "Сохраните файл" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save the file"
+          }
+        }
+      }
+    },
+    "Сохранить фото" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save Photo"
+          }
+        }
+      }
+    },
+    "Средний" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Middle"
+          }
+        }
+      }
+    },
+    "Стикер" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sticker"
+          }
+        }
+      }
+    },
+    "СТИКЕРЫ" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "STICKERS"
+          }
+        }
+      }
+    },
+    "Стиль цифр" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digit style"
+          }
+        }
+      }
+    },
+    "Текст" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text"
+          }
+        }
+      }
+    },
+    "ТЕКСТ" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TEXT"
+          }
+        }
+      }
+    },
+    "Трансформация" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transform"
+          }
+        }
+      }
+    },
+    "Убрать фото" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove photo"
+          }
+        }
+      }
+    },
+    "Удалить" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "Уложить в фон" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send to background"
+          }
+        }
+      }
+    },
+    "Умножение" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiply"
+          }
+        }
+      }
+    },
+    "Уходит вверх" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exits up"
+          }
+        }
+      }
+    },
+    "Уходит влево" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exits left"
+          }
+        }
+      }
+    },
+    "Уходит вниз" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exits down"
+          }
+        }
+      }
+    },
+    "Уходит вправо" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exits right"
+          }
+        }
+      }
+    },
+    "Файл — это стандартный PosterBoard-постер (слои Core Animation). Он работает через инструменты кастомизации; джейлбрейк не требуется." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file is a standard PosterBoard poster (Core Animation layers). It works through customization tools; no jailbreak required."
+          }
+        }
+      }
+    },
+    "Фон" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Background"
+          }
+        }
+      }
+    },
+    "Фото" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo"
+          }
+        }
+      }
+    },
+    "ФОТО" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PHOTO"
+          }
+        }
+      }
+    },
+    "Хоровод копий" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ring of copies"
+          }
+        }
+      }
+    },
+    "Цвет" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Color"
+          }
+        }
+      }
+    },
+    "Цвет текста" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text color"
+          }
+        }
+      }
+    },
+    "Цифры" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digits"
+          }
+        }
+      }
+    },
+    "Цифры (4)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digits (4)"
+          }
+        }
+      }
+    },
+    "Часы / пасскод" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clock / passcode"
+          }
+        }
+      }
+    },
+    "Чип" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chip"
+          }
+        }
+      }
+    },
+    "Шрифт" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Font"
+          }
+        }
+      }
+    },
+    "Экран" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen"
+          }
+        }
+      }
+    },
+    "Экран блокировки" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock Screen"
+          }
+        }
+      }
+    },
+    "Экспорт .tendies" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export .tendies"
+          }
+        }
+      }
+    },
+    "Эффект" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effect"
+          }
+        }
+      }
+    },
+    "Эффект на весь экран" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full-screen effect"
+          }
+        }
+      }
+    },
+    "Эффекты" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effects"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -449,7 +449,7 @@ struct PairingTab: View {
                                     .foregroundStyle(.secondary)
                             }
                             Spacer()
-                            Text("v1.1")
+                            Text("v1.1.1")
                                 .font(.system(size: 11, weight: .semibold, design: .monospaced))
                                 .padding(.horizontal, 8).padding(.vertical, 4)
                                 .background(.ultraThinMaterial, in: Capsule())
@@ -825,6 +825,8 @@ struct WalletCardView: View {
     let onPickImage: () -> Void
     let onClearImage: () -> Void
     let onDelete: () -> Void
+    let onAddLogo: () -> Void
+    var onSaveSkin: (() -> Void)? = nil
 
     @State private var copied = false
 
@@ -852,13 +854,36 @@ struct WalletCardView: View {
                             )
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
-                            Button(action: onClearImage) {
-                                Image(systemName: "xmark.circle.fill")
-                                    .font(.system(size: 24))
-                                    .foregroundStyle(.white.opacity(0.95))
-                                    .background(Circle().fill(Color.black.opacity(0.55)))
+                            HStack(spacing: 8) {
+                                if let onSaveSkin {
+                                    Button(action: onSaveSkin) {
+                                        Image(systemName: "tray.and.arrow.down.fill")
+                                            .font(.system(size: 14, weight: .semibold))
+                                            .foregroundStyle(.white)
+                                            .frame(width: 32, height: 32)
+                                            .background(Circle().fill(Color.black.opacity(0.55)))
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+
+                                Button(action: onAddLogo) {
+                                    Image(systemName: "creditcard.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(.white)
+                                        .frame(width: 32, height: 32)
+                                        .background(Circle().fill(Color.black.opacity(0.55)))
+                                }
+                                .buttonStyle(.plain)
+
+                                Button(action: onClearImage) {
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(.white)
+                                        .frame(width: 32, height: 32)
+                                        .background(Circle().fill(Color.black.opacity(0.55)))
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                             .padding(10)
                         }
                     } else {
@@ -1010,12 +1035,24 @@ struct WalletCardsTab: View {
     @State private var photoLoadFailed = false
     @State private var pendingLoadError = false
     @State private var cropAccepted = false
+    @State private var logoOverlayCardId: String? = nil
+    @State private var showSaveSkinDialog = false
+    @State private var saveSkinName = ""
+    @State private var saveSkinImage: UIImage? = nil
+    @State private var showSkinLibrary = false
+    @State private var skinApplyTarget: String? = nil
+    @State private var renamingSkin: SavedCardSkin? = nil
+    @State private var renameSkinText = ""
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
                     scannerBanner
+
+                    if !vm.savedCardSkins.isEmpty || !vm.cards.isEmpty {
+                        skinLibraryBanner
+                    }
 
                     if vm.cards.isEmpty {
                         walletEmptyState
@@ -1155,6 +1192,56 @@ struct WalletCardsTab: View {
             } message: {
                 Text("Choose another image or try downloading the photo to your iPhone first.")
             }
+            .sheet(isPresented: Binding(
+                get: { logoOverlayCardId != nil },
+                set: { if !$0 { logoOverlayCardId = nil } }
+            )) {
+                if let cardId = logoOverlayCardId,
+                   let card = vm.cards.first(where: { $0.id == cardId }),
+                   let img = card.uiImage {
+                    CardLogoOverlayView(cardImage: img) { composited in
+                        vm.setCardImage(for: cardId, image: composited)
+                        logoOverlayCardId = nil
+                    }
+                }
+            }
+            .alert("Save to Skin Library", isPresented: $showSaveSkinDialog) {
+                TextField("Skin name", text: $saveSkinName)
+                Button("Save") {
+                    if let img = saveSkinImage {
+                        vm.saveCardSkinToLibrary(image: img, name: saveSkinName)
+                        saveSkinName = ""
+                        saveSkinImage = nil
+                    }
+                }
+                Button("Cancel", role: .cancel) { saveSkinName = ""; saveSkinImage = nil }
+            } message: {
+                Text("Give this card skin a name so you can reuse it later.")
+            }
+            .sheet(isPresented: $showSkinLibrary) {
+                CardSkinLibrarySheet(
+                    applyTarget: skinApplyTarget,
+                    onApplyToCard: { skin, cardId in
+                        vm.applyCardSkinToCard(skin, cardId: cardId)
+                        showSkinLibrary = false
+                    },
+                    onApplyToAll: { skin in
+                        vm.applyCardSkinToAllCards(skin)
+                        showSkinLibrary = false
+                    }
+                )
+            }
+            .alert("Rename skin", isPresented: Binding(
+                get: { renamingSkin != nil },
+                set: { if !$0 { renamingSkin = nil } }
+            )) {
+                TextField("New name", text: $renameSkinText)
+                Button("Save") {
+                    if let s = renamingSkin { vm.renameSavedCardSkin(s, to: renameSkinText) }
+                    renamingSkin = nil; renameSkinText = ""
+                }
+                Button("Cancel", role: .cancel) { renamingSkin = nil; renameSkinText = "" }
+            }
         }
     }
 
@@ -1221,6 +1308,65 @@ struct WalletCardsTab: View {
     }
 
     @ViewBuilder
+    private var skinLibraryBanner: some View {
+        if !vm.savedCardSkins.isEmpty {
+            VStack(spacing: 10) {
+                HStack {
+                    Image(systemName: "rectangle.stack.fill")
+                        .foregroundStyle(Theme.accent)
+                    Text("Skin Library")
+                        .font(.subheadline.bold())
+                    Text("· \(vm.savedCardSkins.count)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Button("View All") {
+                        skinApplyTarget = nil
+                        showSkinLibrary = true
+                    }
+                    .font(.caption.bold())
+                }
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(vm.savedCardSkins) { skin in
+                            Button {
+                                skinApplyTarget = nil
+                                showSkinLibrary = true
+                            } label: {
+                                VStack(spacing: 4) {
+                                    if let preview = skin.previewImage {
+                                        Image(uiImage: preview)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 63)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                    } else {
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            .fill(Color(uiColor: .tertiarySystemBackground))
+                                            .frame(width: 100, height: 63)
+                                            .overlay(Image(systemName: "creditcard").foregroundStyle(.secondary))
+                                    }
+                                    Text(skin.name)
+                                        .font(.system(size: 10))
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                        .frame(width: 100)
+                                }
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
+            .padding(14)
+            .background(Color(uiColor: .secondarySystemBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .padding(.horizontal)
+        }
+    }
+
+    @ViewBuilder
     private var cardsList: some View {
         VStack(spacing: 16) {
             ForEach(vm.cards, id: \.id) { card in
@@ -1239,7 +1385,14 @@ struct WalletCardsTab: View {
                     onDelete: {
                         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                         vm.deleteCard(id: card.id)
-                    }
+                    },
+                    onAddLogo: {
+                        logoOverlayCardId = card.id
+                    },
+                    onSaveSkin: card.uiImage != nil ? {
+                        saveSkinImage = card.uiImage
+                        showSaveSkinDialog = true
+                    } : nil
                 )
                 .id(card.id)
                 .transition(.asymmetric(
@@ -1393,8 +1546,142 @@ struct AddCardSheet: View {
     }
 }
 
+struct CardSkinLibrarySheet: View {
+    @EnvironmentObject var vm: AppViewModel
+    @Environment(\.dismiss) private var dismiss
+    let applyTarget: String?
+    let onApplyToCard: (SavedCardSkin, String) -> Void
+    let onApplyToAll: (SavedCardSkin) -> Void
+
+    @State private var renamingSkin: SavedCardSkin? = nil
+    @State private var renameText = ""
+
+    var body: some View {
+        NavigationStack {
+            Group {
+                if vm.savedCardSkins.isEmpty {
+                    VStack(spacing: 16) {
+                        Image(systemName: "rectangle.stack")
+                            .font(.system(size: 40))
+                            .foregroundStyle(.secondary)
+                        Text("No saved skins yet")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                        Text("Set a skin on any card, then tap the save button to add it here.")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 40)
+                    }
+                    .frame(maxHeight: .infinity)
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(), spacing: 12),
+                            GridItem(.flexible(), spacing: 12)
+                        ], spacing: 16) {
+                            ForEach(vm.savedCardSkins) { skin in
+                                skinCard(skin)
+                            }
+                        }
+                        .padding()
+                    }
+                }
+            }
+            .background(Color(uiColor: .systemGroupedBackground))
+            .navigationTitle("Skin Library")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
+            .alert("Rename skin", isPresented: Binding(
+                get: { renamingSkin != nil },
+                set: { if !$0 { renamingSkin = nil } }
+            )) {
+                TextField("New name", text: $renameText)
+                Button("Save") {
+                    if let s = renamingSkin { vm.renameSavedCardSkin(s, to: renameText) }
+                    renamingSkin = nil; renameText = ""
+                }
+                Button("Cancel", role: .cancel) { renamingSkin = nil; renameText = "" }
+            }
+        }
+    }
+
+    private func skinCard(_ skin: SavedCardSkin) -> some View {
+        VStack(spacing: 6) {
+            if let preview = skin.previewImage {
+                Image(uiImage: preview)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            } else {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color(uiColor: .tertiarySystemBackground))
+                    .frame(height: 100)
+                    .overlay(Image(systemName: "creditcard").font(.title2).foregroundStyle(.secondary))
+            }
+
+            Text(skin.name)
+                .font(.system(size: 12, weight: .medium))
+                .lineLimit(1)
+
+            Text(skin.dateCreated.formatted(date: .abbreviated, time: .omitted))
+                .font(.system(size: 10))
+                .foregroundStyle(.tertiary)
+
+            HStack(spacing: 6) {
+                if let cardId = applyTarget {
+                    Button("Apply") {
+                        onApplyToCard(skin, cardId)
+                    }
+                    .font(.caption.bold())
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+                } else if !vm.cards.isEmpty {
+                    Button("Apply to All") {
+                        onApplyToAll(skin)
+                    }
+                    .font(.caption.bold())
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+                }
+
+                Menu {
+                    Button {
+                        renameText = skin.name
+                        renamingSkin = skin
+                    } label: {
+                        Label("Rename", systemImage: "pencil")
+                    }
+                    Button(role: .destructive) {
+                        vm.deleteSavedCardSkin(skin)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color(uiColor: .secondarySystemGroupedBackground))
+        )
+    }
+}
+
 struct PasscodeThemeTab: View {
     @EnvironmentObject var vm: AppViewModel
+    @State private var renamingThemeFromApply: SavedPasscodeTheme? = nil
+    @State private var renameTextFromApply = ""
+
     var body: some View {
         NavigationStack {
             Form {
@@ -1410,6 +1697,7 @@ struct PasscodeThemeTab: View {
 
                 if vm.passcodeMode == .applyTheme {
                     ApplyThemeSection()
+                    applyModeLibrary
                 } else {
                     ThemeCreatorSection()
                 }
@@ -1431,6 +1719,44 @@ struct PasscodeThemeTab: View {
             .toolbar {
             }
             .onAppear { vm.scanDocumentsDirectory() }
+            .alert("Rename theme", isPresented: Binding(
+                get: { renamingThemeFromApply != nil },
+                set: { if !$0 { renamingThemeFromApply = nil } }
+            )) {
+                TextField("New name", text: $renameTextFromApply)
+                Button("Save") {
+                    if let t = renamingThemeFromApply { vm.renameSavedPasscodeTheme(t, to: renameTextFromApply) }
+                    renamingThemeFromApply = nil; renameTextFromApply = ""
+                }
+                Button("Cancel", role: .cancel) { renamingThemeFromApply = nil; renameTextFromApply = "" }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var applyModeLibrary: some View {
+        if !vm.savedPasscodeThemes.isEmpty {
+            Section(header: Text("Library · \(vm.savedPasscodeThemes.count)")) {
+                ForEach(vm.savedPasscodeThemes) { theme in
+                    SavedPasscodeThemeRow(
+                        theme: theme,
+                        onFlash: {
+                            vm.loadPassthm(url: theme.fileURL)
+                            vm.flashPassthm()
+                        },
+                        onEdit: {
+                            vm.loadSavedPasscodeThemeIntoCreator(theme)
+                            vm.passcodeMode = .themeCreator
+                        },
+                        onExport: { vm.exportSavedPasscodeTheme(theme) },
+                        onRename: {
+                            renameTextFromApply = theme.name
+                            renamingThemeFromApply = theme
+                        },
+                        onDelete: { vm.deleteSavedPasscodeTheme(theme) }
+                    )
+                }
+            }
         }
     }
 }

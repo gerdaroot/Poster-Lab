@@ -59,6 +59,7 @@ final class AppViewModel: ObservableObject {
     @Published var passthmFlashLog: [String] = []
 
     @Published var savedPasscodeThemes: [SavedPasscodeTheme] = []
+    @Published var savedCardSkins: [SavedCardSkin] = []
 
     @Published var tendieItems: [TendieItem] = []
     @Published var posterBoardContainer: String = ""
@@ -109,6 +110,7 @@ final class AppViewModel: ObservableObject {
         posterBoardContainer = UserDefaults.standard.string(forKey: "posterlab.posterboard_container") ?? ""
         loadSavedTendies()
         loadSavedPasscodeThemes()
+        loadSavedCardSkins()
 
         AppViewModel.sharedLogSink = { [weak self] line in
             self?.log.append(line)
@@ -1174,6 +1176,89 @@ final class AppViewModel: ObservableObject {
     func exportSavedPasscodeTheme(_ item: SavedPasscodeTheme) {
         self.exportedThemeURL = item.fileURL
         self.showShareSheet = true
+    }
+
+    // MARK: - Card Skin Library
+
+    func loadSavedCardSkins() {
+        if let data = UserDefaults.standard.data(forKey: "posterlab.saved_card_skins"),
+           let items = try? JSONDecoder().decode([SavedCardSkin].self, from: data) {
+            self.savedCardSkins = items
+                .filter { FileManager.default.fileExists(atPath: $0.fileURL.path) }
+                .sorted { $0.dateCreated > $1.dateCreated }
+        }
+    }
+
+    func persistSavedCardSkins() {
+        if let data = try? JSONEncoder().encode(savedCardSkins) {
+            UserDefaults.standard.set(data, forKey: "posterlab.saved_card_skins")
+        }
+    }
+
+    @discardableResult
+    func saveCardSkinToLibrary(image: UIImage, name: String) -> SavedCardSkin? {
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalName = trimmed.isEmpty ? "Skin \(savedCardSkins.count + 1)" : trimmed
+
+        let id = UUID()
+        let fileName = "\(id.uuidString).png"
+        let url = SavedCardSkin.storageDirectory.appendingPathComponent(fileName)
+
+        guard let pngData = ImageEngine.resizeImage(image, targetSize: CGSize(width: 1536, height: 969)) else {
+            errorMessage = "Failed to process card skin image."
+            return nil
+        }
+
+        do {
+            try pngData.write(to: url)
+        } catch {
+            errorMessage = "Failed to save card skin: \(error.localizedDescription)"
+            return nil
+        }
+
+        let previewSize = CGSize(width: 256, height: 161)
+        let previewData = ImageEngine.resizeImage(image, targetSize: previewSize)
+        let b64 = previewData?.base64EncodedString()
+
+        let item = SavedCardSkin(
+            id: id,
+            name: finalName,
+            fileName: fileName,
+            dateCreated: Date(),
+            previewPNGBase64: b64
+        )
+        savedCardSkins.insert(item, at: 0)
+        persistSavedCardSkins()
+        return item
+    }
+
+    func deleteSavedCardSkin(_ item: SavedCardSkin) {
+        try? FileManager.default.removeItem(at: item.fileURL)
+        savedCardSkins.removeAll { $0.id == item.id }
+        persistSavedCardSkins()
+    }
+
+    func renameSavedCardSkin(_ item: SavedCardSkin, to newName: String) {
+        guard let idx = savedCardSkins.firstIndex(where: { $0.id == item.id }) else { return }
+        let trimmed = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty { savedCardSkins[idx].name = trimmed }
+        persistSavedCardSkins()
+    }
+
+    func applyCardSkinToCard(_ skin: SavedCardSkin, cardId: String) {
+        guard let image = skin.loadFullImage() else {
+            errorMessage = "Could not load saved skin image."
+            return
+        }
+        setCardImage(for: cardId, image: image)
+    }
+
+    func applyCardSkinToAllCards(_ skin: SavedCardSkin) {
+        guard let image = skin.loadFullImage() else {
+            errorMessage = "Could not load saved skin image."
+            return
+        }
+        setSkinForAllCards(image: image)
     }
 
     private func renderPasscodePreview(keys: [String: UIImage], tile: CGFloat = 56, gap: CGFloat = 4) -> UIImage? {

@@ -762,3 +762,35 @@ public struct SavedPasscodeTheme: Codable, Identifiable, Equatable {
         self.previewPNGBase64 = previewPNGBase64
     }
 }
+
+public struct SavedCardSkin: Codable, Identifiable, Equatable {
+    public let id: UUID
+    public var name: String
+    public var fileName: String
+    public var dateCreated: Date
+    public var previewPNGBase64: String?
+
+    public static var storageDirectory: URL {
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let dir = docs.appendingPathComponent("CardSkins", isDirectory: true)
+        if !FileManager.default.fileExists(atPath: dir.path) {
+            try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        }
+        return dir
+    }
+
+    public var fileURL: URL {
+        Self.storageDirectory.appendingPathComponent(fileName)
+    }
+
+    public var previewImage: UIImage? {
+        guard let b64 = previewPNGBase64,
+              let data = Data(base64Encoded: b64) else { return nil }
+        return UIImage(data: data)
+    }
+
+    public func loadFullImage() -> UIImage? {
+        guard let data = try? Data(contentsOf: fileURL) else { return nil }
+        return UIImage(data: data)
+    }
+}

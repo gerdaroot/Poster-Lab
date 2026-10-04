@@ -15,6 +15,9 @@
     ".passthm format" : {
 
     },
+    "· %@" : {
+
+    },
     "“Exits…” flies the object off-screen on the Home Screen. “Flies in…” means the object rests on the Home Screen and isn’t on the Lock Screen — it appears from off-screen during the transition." : {
 
     },
@@ -186,6 +189,9 @@
     "Drag anywhere on the dialer preview to reposition" : {
 
     },
+    "Drag logo to position it on the card" : {
+
+    },
     "Drag preview to reposition" : {
 
     },
@@ -260,6 +266,9 @@
     "GitHub" : {
 
     },
+    "Give this card skin a name so you can reuse it later." : {
+
+    },
     "Home Screen" : {
 
     },
@@ -288,6 +297,9 @@
 
     },
     "Layer" : {
+
+    },
+    "Library · %@" : {
 
     },
     "Live Scanner Active" : {
@@ -330,6 +342,9 @@
 
     },
     "No layers yet. Tap “Add”." : {
+
+    },
+    "No saved skins yet" : {
 
     },
     "No wallpapers yet" : {
@@ -413,6 +428,9 @@
     "Select a layer on the canvas." : {
 
     },
+    "Set a skin on any card, then tap the save button to add it here." : {
+
+    },
     "Settings › Privacy & Security › Developer Mode › Pair with PosterLab" : {
 
     },
@@ -423,6 +441,9 @@
 
     },
     "SideStore automatically creates a pairing file during setup. You can pick it directly in the Files app:" : {
+
+    },
+    "Skin Library" : {
 
     },
     "Spin forever" : {
@@ -491,7 +512,7 @@
     "Universal mode flashes ~600 files for all languages & Bold text. Selecting a specific language (e.g. Ukrainian) speeds up flashing dramatically." : {
 
     },
-    "v1.0" : {
+    "v1.1.1" : {
 
     },
     "Visible on Home Screen" : {
